@@ -37,7 +37,7 @@ class CheckPass extends Component {
   render() {
     return (
       <div className="check-pass-box">
-        <h1>Password Checker</h1>
+        <h1>Hacker Tracker</h1>
         <div className="info">
           <span>Type in any password you want to check!</span>
           <span>How do we check if your password was hacked?</span>
