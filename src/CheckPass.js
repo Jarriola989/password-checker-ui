@@ -13,7 +13,7 @@ class CheckPass extends Component {
     this.setState({ [e.target.id]: e.target.value });
   };
 
-  verifyPassword = e => {
+  verifyPassword = (e) => {
     e.preventDefault();
     console.log("entered post request");
     const { password } = this.state;
@@ -38,16 +38,11 @@ class CheckPass extends Component {
     return (
       <div className="check-pass-box">
         <h1>Password Checker</h1>
-        <div>
+        <div className="info">
           <span>Type in any password you want to check!</span>
-          <br />
-          <br />
           <span>How do we check if your password was hacked?</span>
-          <br />
-          <br />
-          <br />
         </div>
-        <form type="submit">
+        <form type="submit" onSubmit={this.verifyPassword}>
           <input
             type="text"
             className="check-input"
