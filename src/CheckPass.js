@@ -10,7 +10,9 @@ class CheckPass extends Component {
   }
 
   handleChange = (e) => {
-    this.setState({ [e.target.id]: e.target.value });
+    this.setState({ [e.target.id]: e.target.value }, () =>
+      console.log(this.state.password)
+    );
   };
 
   verifyPassword = (e) => {
@@ -25,13 +27,11 @@ class CheckPass extends Component {
         body: JSON.stringify({ password }),
       }
     );
-    let response = result.then((res) => {
-      res.json();
-      console.log(res);
+    result.then(async (res) => {
+      let hacked = await res.json();
+
+      this.setState({ isHacked: hacked.result });
     });
-    response.then((data) =>
-      this.setState({ isHacked: data }, () => console.log(this.state.isHacked))
-    );
   };
 
   render() {
@@ -53,7 +53,7 @@ class CheckPass extends Component {
             Check
           </button>
         </form>
-        {this.state.isHacked}
+        <div className="hack-result">{this.state.isHacked}</div>
       </div>
     );
   }

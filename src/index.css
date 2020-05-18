@@ -105,4 +105,8 @@ form {
     left: 50%;
     transform: translateX(-50%);
   }
+
+  .hack-result {
+    margin-top: 10%;
+  }
 }
